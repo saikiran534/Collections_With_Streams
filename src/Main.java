@@ -54,9 +54,9 @@ public class Main {
         });
         System.out.println("Task 3");
         Customers.stream().forEach(result->{
-                    System.out.println("Customer Name : "+result.getName()+"\nHeading : "+result.getNewPosts().getHeading()+"\nDescription : "+result.getNewPosts().getDescription()
-                            +"\n");
-                    result.getNewPosts().getComment().stream().forEach(x->System.out.println("Comment :"+x.getComment()));
+                    System.out.println("\nCustomer Name : "+result.getName()+"\nHeading : "+result.getNewPosts().getHeading()+
+                                    "\nDescription : "+result.getNewPosts().getDescription());
+                    result.getNewPosts().getComment().stream().filter(x->!x.getComment().equals("")).forEach(y->System.out.println("Comments : "+y.getComment()));
 
                 }
 
