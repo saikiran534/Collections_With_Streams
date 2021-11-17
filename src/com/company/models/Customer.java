@@ -2,11 +2,12 @@ package com.company.models;
 
 public class Customer {
     private String Name;
-    private String Email;
+//    private String Email;
+    private Posts newPosts;
 
-    public Customer(String name, String email) {
+    public Customer(String name, Posts newPosts) {
         Name = name;
-        Email = email;
+        this.newPosts = newPosts;
     }
 
     public String getName() {
@@ -17,19 +18,11 @@ public class Customer {
         Name = name;
     }
 
-    public String getEmail() {
-        return Email;
+    public Posts getNewPosts() {
+        return newPosts;
     }
 
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "Name='" + Name + '\'' +
-                ", Email='" + Email + '\'' +
-                '}';
+    public void setNewPosts(Posts newPosts) {
+        this.newPosts = newPosts;
     }
 }

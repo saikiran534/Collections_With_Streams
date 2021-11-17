@@ -1,25 +1,24 @@
 package com.company.models;
 
 public class Posts {
-    private String PostID;
+    private Comments newPostID;
     private String Email;
     private String Heading;
     private String Description;
 
-    public Posts(String postID, String email, String heading, String description) {
-        PostID = postID;
+    public Posts(Comments newPostID, String email, String heading, String description) {
+        this.newPostID = newPostID;
         Email = email;
         Heading = heading;
         Description = description;
-
     }
 
-    public String getPostID() {
-        return PostID;
+    public Comments getNewPostID() {
+        return newPostID;
     }
 
-    public void setPostID(String postID) {
-        PostID = postID;
+    public void setNewPostID(Comments newPostID) {
+        this.newPostID = newPostID;
     }
 
     public String getEmail() {
@@ -44,15 +43,5 @@ public class Posts {
 
     public void setDescription(String description) {
         Description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "Posts{" +
-                "PostID='" + PostID + '\'' +
-                ", Email='" + Email + '\'' +
-                ", Heading='" + Heading + '\'' +
-                ", Description='" + Description + '\'' +
-                '}';
     }
 }
