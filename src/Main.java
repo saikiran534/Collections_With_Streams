@@ -4,25 +4,29 @@ import com.company.models.Posts;
 
 import javax.lang.model.element.Name;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-           Comments comment1 = new Comments("p1","Vemula@gmail.com","Its Delicious");
-           Comments comment2 = new Comments("p2","Sai@gmail.com"," Its the best place to learn the technologies");
-           Comments comment3 = new Comments("p3","Srinivas@gmail.com","Nice Place ");
-           Comments comment4 = new Comments("p4","kiran@gmail.com","its an beautiful location to prepare and work ");
-           Comments comment5 = new Comments("p5","kiran@gmail.com", "");
-
-
-
-            Posts post1= new Posts(comment1,"Vemula@gmail.com","H1","About Organisation");
-            Posts post2= new Posts(comment2,"sai@gmail.com","H2","About Food");
-            Posts post3= new Posts(comment3,"Srinivas@gmail.com","H2","About Organisation ");
-            Posts post4= new Posts(comment4,"kiran@gmail.com","H3","About Work ");
-            Posts post5= new Posts(comment4,"kiran@gmail.com","H3","About Work ");
+           Comments comment1 = new Comments("Its Delicious");
+           Comments comment2 = new Comments( "Its the best place to learn the technologies");
+           Comments comment3 = new Comments("Nice Place ");
+           Comments comment4 = new Comments("its an beautiful location to prepare and work ");
+           Comments comment5 = new Comments("");
+           List<Comments> comment_a= Arrays.asList(comment1, comment2, comment5);
+           List<Comments> comments_b=Arrays.asList(comment1,comment3);
+           List<Comments> comments_c=Arrays.asList(comment5,comment1,comment3);
+           List<Comments> comments_d=Arrays.asList(comment1,comment2,comment3,comment4,comment5);
+           List<Comments> comments_e=Arrays.asList(comment1,comment5);
+           //List comments_x =Arrays.asList(comment_a,comments_b);
+           Posts post1= new Posts("p1","Vemula@gmail.com","H1","About Organisation",comment_a);
+           Posts post2= new Posts("p2","sai@gmail.com","H2","About Food",comments_b);
+           Posts post3= new Posts("p3","Srinivas@gmail.com","H2","About Organisation ",comments_c);
+           Posts post4= new Posts("p4","kiran@gmail.com","H3","About Work ",comments_d);
+           Posts post5= new Posts("p5","kiran@gmail.com","H3","About Work ",comments_e);
 
         List<Customer> Customers  = new ArrayList<>();
         {
@@ -49,9 +53,16 @@ public class Main {
             System.out.println("Customer Name :"+x.getName()+"; Heading :"+x.getNewPosts().getHeading()+"; Description :"+x.getNewPosts().getDescription());
         });
         System.out.println("Task 3");
-        Customers.stream().forEach(result->
-            System.out.println("Customer Name : "+result.getName()+"\nHeading : "+result.getNewPosts().getHeading()+"\nDescription : "+result.getNewPosts().getDescription()
-            +"\nComment : "+result.getNewPosts().getNewPostID().getComment()+"\n"));
+        Customers.stream().forEach(result->{
+                    System.out.println("Customer Name : "+result.getName()+"\nHeading : "+result.getNewPosts().getHeading()+"\nDescription : "+result.getNewPosts().getDescription()
+                            +"\n");
+                    result.getNewPosts().getComment().stream().forEach(x->System.out.println("Comment :"+x.getComment()));
+
+                }
+
+
+        );
+
 
 
 

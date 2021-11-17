@@ -1,24 +1,29 @@
 package com.company.models;
 
+import java.util.List;
+
 public class Posts {
-    private Comments newPostID;
+
+    private String PostID;
     private String Email;
     private String Heading;
     private String Description;
+    private List<Comments> comment ;
 
-    public Posts(Comments newPostID, String email, String heading, String description) {
-        this.newPostID = newPostID;
+    public Posts(String postID, String email, String heading, String description, List<Comments> comment) {
+        PostID = postID;
         Email = email;
         Heading = heading;
         Description = description;
+        this.comment = comment;
     }
 
-    public Comments getNewPostID() {
-        return newPostID;
+    public String getPostID() {
+        return PostID;
     }
 
-    public void setNewPostID(Comments newPostID) {
-        this.newPostID = newPostID;
+    public void setPostID(String postID) {
+        PostID = postID;
     }
 
     public String getEmail() {
@@ -43,5 +48,24 @@ public class Posts {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public List<Comments> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comments> comment) {
+        this.comment = comment;
+    }
+
+    @Override
+    public String toString() {
+        return "Posts{" +
+                "PostID='" + PostID + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Heading='" + Heading + '\'' +
+                ", Description='" + Description + '\'' +
+                ", comment=" + comment +
+                '}';
     }
 }

@@ -5,6 +5,7 @@ public class Customer {
 //    private String Email;
     private Posts newPosts;
 
+
     public Customer(String name, Posts newPosts) {
         Name = name;
         this.newPosts = newPosts;
